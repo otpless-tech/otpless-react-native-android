@@ -33,5 +33,5 @@ android {
 
 dependencies {
     implementation("com.facebook.react:react-android:0.72.0-rc.3")
-    implementation 'com.github.otpless-tech:otpless-android-sdk:2.0.5'
+    implementation 'com.github.otpless-tech:otpless-android-sdk:2.0.6'
 }

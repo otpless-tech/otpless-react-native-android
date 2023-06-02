@@ -1,5 +1,6 @@
 package com.otpless.reactnative
 
+import android.app.Activity
 import com.facebook.react.bridge.Callback
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
@@ -50,6 +51,12 @@ class OtplessReactModule(private val reactAppContext: ReactApplicationContext) :
                 throw RuntimeException(e)
             }
         }
+    }
+
+    @ReactMethod
+    fun onSignInCompleted() {
+        val activity: Activity = reactAppContext.currentActivity ?: return
+        activity.runOnUiThread { OtplessManager.getInstance().onSignInCompleted() }
     }
 
     private fun sendResultEvent(result: JSONObject) {
